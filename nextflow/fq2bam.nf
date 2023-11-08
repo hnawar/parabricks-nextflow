@@ -21,8 +21,8 @@ params.inputSampleName = null
 params.readGroupName = null
 params.platformName = null
 
-params.pbPATH = ""
-params.pbLicense = ""
+
+
 
 // Dynamic Process configuration not yet implemented.
 // params.pbDocker = "parabricks-cloud:latest"
@@ -46,9 +46,8 @@ process fq2bam {
     path inputKnownSitesVCF
     path inputKnownSitesTBI
     val inputSampleName
-    val pbPATH
     val tmpDir
-    path pbLicense
+    
 
     output:
     path "${inputFASTQ_1.baseName}.pb.bam"
@@ -95,9 +94,7 @@ workflow ClaraParabricks_fq2bam {
             inputKnownSitesVCF=params.inputKnownSitesVCF,
             inputKnownSitesTBI=params.inputKnownSitesTBI,
             inputSampleName=params.inputSampleName,
-            pbPATH=params.pbPATH,
-            tmpDir=params.tmpDir,
-            pbLicense=params.pbLicense)
+            tmpDir=params.tmpDir)
 }
 
 workflow {
